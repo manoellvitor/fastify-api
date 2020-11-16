@@ -21,6 +21,8 @@
   "homepage": "https://github.com/manoellvitor/fastify-api#readme",
   "dependencies": {
     "boom": "^7.3.0",
+    "dotenv": "^8.2.0",
+    "env": "0.0.2",
     "fastify": "^3.8.0",
     "fastify-swagger": "^3.5.0",
     "mongoose": "^5.10.14"

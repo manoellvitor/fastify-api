@@ -2,6 +2,10 @@
 // Mongoose
 const mongoose = require("mongoose")
 
+// Env Configure
+const dotenv = require("dotenv")
+dotenv.config()
+
 // Require the framework
 const fastfy = require("fastify")({
     logger: true
@@ -15,7 +19,7 @@ fastfy.get("/", async (req, res) => {
 })
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://manoel:manoel@graphql-api.fyhgt.mongodb.net/fastifyapi?retryWrites=true&w=majority")
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@graphql-api.fyhgt.mongodb.net/fastifyapi?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => console.log("MongoDB Connected..."))
 .catch(err => console.log(err))
 
