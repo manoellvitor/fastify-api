@@ -1,0 +1,31 @@
+{
+  "name": "fastify-api",
+  "version": "1.0.0",
+  "description": "Following FreeCodeCamp.org Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manoellvitor/fastify-api.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Manoel Vitor Lopes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manoellvitor/fastify-api/issues"
+  },
+  "homepage": "https://github.com/manoellvitor/fastify-api#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^3.8.0",
+    "fastify-swagger": "^3.5.0",
+    "mongoose": "^5.10.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
