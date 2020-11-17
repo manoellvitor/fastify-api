@@ -1,3 +1,8 @@
+// Routes
+const routes = require("./routes")
+
+// Swagger Options
+const swagger = require("./config/swagger")
 
 // Mongoose
 const mongoose = require("mongoose")
@@ -7,16 +12,18 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 // Require the framework
-const fastfy = require("fastify")({
+const fastify = require("fastify")({
     logger: true
 })
 
+// Register Swagger
+fastify.register(require("fastify-swagger"), swagger.options)
+
 // Declare the route
-fastfy.get("/", async (req, res) => {
-    return { 
-        hello: "World"
-    }
+routes.forEach((route, index) => {
+    fastify.route(route)
 })
+
 
 // Connect to MongoDB
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@graphql-api.fyhgt.mongodb.net/fastifyapi?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -26,10 +33,11 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PA
 // Run the Server
 const start = async () => {
     try {
-        await fastfy.listen(3000)
-        fastfy.log.info(`Server Listening on ${fastfy.server.address().port}`)
+        await fastify.listen(3000)
+        fastify.swagger()
+        fastify.log.info(`Server Listening on ${fastify.server.address().port}`)
     } catch (err) {
-        fastfy.log.error(err)
+        fastify.log.error(err)
         process.exit(1)
     }
 }

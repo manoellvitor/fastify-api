@@ -6,6 +6,7 @@ const Car = require("../models/Car")
 exports.getCars = async (req, res) => {
     try {
         const cars = await Car.find()
+        console.log("hey")
         return cars
     } catch (err) {
         throw boom.boomify(err)
