@@ -25,7 +25,7 @@
     "env": "0.0.2",
     "fastify": "^3.8.0",
     "fastify-swagger": "^3.5.0",
-    "mongoose": "^5.10.14"
+    "mongoose": "^5.10.15"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
