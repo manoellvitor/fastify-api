@@ -4,7 +4,8 @@
   "description": "Following FreeCodeCamp.org Tutorial",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "seed": "node ./src/helpers/seed.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "mongoose": "^5.10.15"
   },
   "devDependencies": {
+    "faker": "^5.1.0",
     "nodemon": "^2.0.6"
   }
 }
