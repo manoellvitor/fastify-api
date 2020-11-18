@@ -4,6 +4,18 @@ const fastify = require("./server.js")
 // .ENV File
 require("dotenv").config()
 
+// Fastify
+const gql = require("fastify-gql")
+
+// GraphQL Schema
+const schema = require("./schema")
+
+// Register Fastify GraphQL
+fastify.register(gql, {
+    schema,
+    graphiql: true
+})
+
 // Import Routes
 const routes = require("./routes")
 

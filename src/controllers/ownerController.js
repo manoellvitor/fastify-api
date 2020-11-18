@@ -15,7 +15,7 @@ exports.getOwner = async () => {
 }
 
 // Get single Owner by ID
-exports.getSingleOwnser = async req => {
+exports.getSingleOwner = async req => {
     try {
         const id = req.params === undefined ? req.id : req.params.id
         const owner = await Owner.findById(id)
